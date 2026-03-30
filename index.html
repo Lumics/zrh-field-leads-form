@@ -3,46 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZRH Robotic Field Leads — Apply to Join</title>
+  <title>Zurich Field Robotics Leads — Sign Up</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg: #0a0a0a;
       --surface: #141414;
-      --border: #222;
+      --border: #242424;
       --border-focus: #444;
-      --text: #f0f0f0;
+      --text: #f2f2f2;
       --muted: #777;
-      --label: #aaa;
-      --input-bg: #1a1a1a;
+      --label: #bbb;
+      --input-bg: #1c1c1c;
       --accent: #2563eb;
-      --btn-bg: #f0f0f0;
+      --btn-bg: #f2f2f2;
       --btn-text: #0a0a0a;
       --error: #ef4444;
-      --success: #22c55e;
     }
 
-    html { font-size: 16px; }
+    html { font-size: 17px; }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'DM Sans', system-ui, sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      padding: 60px 20px 80px;
+      padding: 64px 20px 80px;
       -webkit-font-smoothing: antialiased;
     }
 
     .wrapper {
       width: 100%;
-      max-width: 540px;
+      max-width: 560px;
     }
 
     /* Header */
@@ -53,17 +52,17 @@
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       background: #111;
       border: 1px solid #222;
       border-radius: 100px;
-      padding: 5px 12px;
+      padding: 5px 13px;
       font-size: 12px;
       font-weight: 500;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .badge-dot {
@@ -71,21 +70,68 @@
       height: 6px;
       background: var(--accent);
       border-radius: 50%;
+      flex-shrink: 0;
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 36px;
       font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
+      letter-spacing: -0.025em;
+      line-height: 1.12;
       color: var(--text);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .subtitle {
-      font-size: 15px;
-      line-height: 1.65;
+      font-size: 15.5px;
+      line-height: 1.7;
       color: var(--muted);
+    }
+
+    .subtitle a {
+      color: #6b9fff;
+      text-decoration: none;
+    }
+
+    .subtitle a:hover { text-decoration: underline; }
+
+    .event-card {
+      margin-top: 22px;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .event-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .event-details {
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .event-title {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .event-meta {
+      color: var(--muted);
+    }
+
+    .event-note {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #555;
+      font-style: italic;
     }
 
     /* Form */
@@ -99,9 +145,9 @@
     .section-label {
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #555;
       margin-bottom: 20px;
       margin-top: 32px;
       padding-top: 32px;
@@ -126,23 +172,14 @@
 
     label {
       display: block;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 500;
       color: var(--label);
       margin-bottom: 7px;
     }
 
-    label .req {
-      color: var(--accent);
-      margin-left: 2px;
-    }
-
-    label .opt {
-      font-size: 11px;
-      font-weight: 400;
-      color: #555;
-      margin-left: 4px;
-    }
+    label .req { color: var(--accent); margin-left: 2px; }
+    label .opt { font-size: 12px; font-weight: 400; color: #555; margin-left: 4px; }
 
     input, textarea {
       width: 100%;
@@ -151,34 +188,27 @@
       border-radius: 10px;
       color: var(--text);
       font-family: inherit;
-      font-size: 14px;
-      padding: 11px 14px;
+      font-size: 15px;
+      padding: 12px 15px;
       transition: border-color 0.15s, box-shadow 0.15s;
       outline: none;
       -webkit-appearance: none;
     }
 
-    input::placeholder, textarea::placeholder {
-      color: #444;
-    }
-
+    input::placeholder, textarea::placeholder { color: #3a3a3a; }
     input:focus, textarea:focus {
       border-color: var(--border-focus);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-    }
-
-    input.error, textarea.error {
-      border-color: var(--error);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     textarea {
       resize: vertical;
-      min-height: 100px;
+      min-height: 108px;
       line-height: 1.6;
     }
 
     .error-msg {
-      font-size: 12px;
+      font-size: 12.5px;
       color: var(--error);
       margin-top: 5px;
       display: none;
@@ -189,9 +219,7 @@
     .field.has-error textarea { border-color: var(--error); }
 
     /* Submit */
-    .submit-wrap {
-      margin-top: 28px;
-    }
+    .submit-wrap { margin-top: 28px; }
 
     button[type="submit"] {
       width: 100%;
@@ -200,9 +228,9 @@
       border: none;
       border-radius: 10px;
       font-family: inherit;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
-      padding: 14px 24px;
+      padding: 15px 24px;
       cursor: pointer;
       transition: opacity 0.15s, transform 0.1s;
       display: flex;
@@ -212,16 +240,13 @@
       letter-spacing: -0.01em;
     }
 
-    button[type="submit"]:hover { opacity: 0.9; }
+    button[type="submit"]:hover { opacity: 0.88; }
     button[type="submit"]:active { transform: scale(0.99); }
-    button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
+    button[type="submit"]:disabled { opacity: 0.45; cursor: not-allowed; }
 
-    .btn-arrow { font-size: 16px; }
-
-    /* Spinner */
     .spinner {
       width: 16px; height: 16px;
-      border: 2px solid rgba(0,0,0,0.2);
+      border: 2px solid rgba(0,0,0,0.15);
       border-top-color: #000;
       border-radius: 50%;
       animation: spin 0.6s linear infinite;
@@ -231,52 +256,41 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .loading .spinner { display: block; }
-    .loading .btn-label { display: none; }
-    .loading .btn-arrow { display: none; }
+    .loading .btn-label, .loading .btn-arrow { display: none; }
 
-    /* Success state */
-    .success-state {
-      display: none;
-      text-align: center;
-      padding: 48px 24px;
-    }
-
-    .success-state.visible { display: block; }
+    /* Success */
+    .success-state { display: none; text-align: center; padding: 48px 24px; }
     .form-card.submitted .form-content { display: none; }
     .form-card.submitted .success-state { display: block; }
 
-    .success-icon {
-      font-size: 40px;
-      margin-bottom: 16px;
-    }
+    .success-icon { font-size: 40px; margin-bottom: 18px; }
 
     .success-state h2 {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 600;
       margin-bottom: 10px;
       letter-spacing: -0.01em;
     }
 
     .success-state p {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    /* Footer note */
     .footer-note {
       text-align: center;
-      font-size: 12px;
-      color: #444;
+      font-size: 12.5px;
+      color: #3a3a3a;
       margin-top: 20px;
       line-height: 1.6;
     }
 
     @media (max-width: 480px) {
-      body { padding: 32px 16px 60px; }
-      .form-card { padding: 24px 20px; }
+      body { padding: 36px 16px 60px; }
+      .form-card { padding: 24px 18px; }
       .row { grid-template-columns: 1fr; gap: 0; }
-      h1 { font-size: 26px; }
+      h1 { font-size: 28px; }
     }
   </style>
 </head>
@@ -287,8 +301,23 @@
         <div class="badge-dot"></div>
         Zurich · Field Robotics
       </div>
-      <h1>ZRH Robotic<br>Field Leads</h1>
-      <p class="subtitle">A curated community of field robotics engineering team leads in Zurich. We meet regularly to share learnings, solve common challenges, and support each other's work.<br><br>Applications are reviewed manually. We only accept team leads actively working in field robotics.</p>
+      <h1>Zurich Field<br>Robotics Leads</h1>
+      <p class="subtitle">
+        A curated community of field robotics engineering team leads in Zurich — meeting regularly to share daily learnings, solve common challenges, and support each other's work.
+        <br><br>
+        We curate the list carefully to make sure we have the right people at the table and can freely share from our day-to-day experiences. Applications are reviewed manually.
+        <br><br>
+        Already on LinkedIn? Join the <a href="https://www.linkedin.com/groups/XXXXXXXXX" target="_blank">Zurich Field Robotics Leads group →</a>
+      </p>
+
+      <div class="event-card">
+        <div class="event-icon">📍</div>
+        <div class="event-details">
+          <div class="event-title">Next meetup — Thursday, May 7th</div>
+          <div class="event-meta">Zurich · Location shared with confirmed attendees</div>
+          <div class="event-note">Sign up below and we'll be in touch with details once the list is confirmed.</div>
+        </div>
+      </div>
     </div>
 
     <div class="form-card" id="formCard">
@@ -353,7 +382,7 @@
         <div class="submit-wrap">
           <button type="submit" id="submitBtn">
             <span class="spinner"></span>
-            <span class="btn-label">Apply to join</span>
+            <span class="btn-label">Sign up</span>
             <span class="btn-arrow">→</span>
           </button>
         </div>
@@ -362,16 +391,15 @@
 
       <div class="success-state">
         <div class="success-icon">🤖</div>
-        <h2>Application received</h2>
-        <p>Thanks for applying to ZRH Robotic Field Leads.<br>We review applications manually and will be in touch soon.</p>
+        <h2>You're on the list</h2>
+        <p>Thanks for signing up for the Zurich Field Robotics Leads meetup.<br>We'll review your profile and be in touch with location details soon.</p>
       </div>
     </div>
 
-    <p class="footer-note">Applications are curated. We'll review your LinkedIn profile and reach out within a few days.</p>
+    <p class="footer-note">We curate attendance to keep the conversation focused and valuable.<br>Location will be shared with confirmed attendees only.</p>
   </div>
 
   <script>
-    // Submissions are proxied via a Cloudflare Worker to keep the API key server-side
     const SUBMIT_ENDPOINT = 'https://zrh-field-leads-form.maurin.workers.dev/submit';
 
     const form = document.getElementById('applyForm');
@@ -387,7 +415,7 @@
     }
 
     function validateAll() {
-      const results = [
+      return [
         validateField('firstName', v => v.length > 0),
         validateField('lastName', v => v.length > 0),
         validateField('email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)),
@@ -395,8 +423,7 @@
         validateField('role', v => v.length > 0),
         validateField('linkedin', v => v.length > 0),
         validateField('why', v => v.length > 10),
-      ];
-      return results.every(Boolean);
+      ].every(Boolean);
     }
 
     ['firstName','lastName','email','company','role','linkedin','why'].forEach(id => {
