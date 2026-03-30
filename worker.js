@@ -49,8 +49,7 @@ export default {
         LINKEDIN_URL: linkedin,
         PHONE: phone || '',
         WHY_JOIN: why,
-        APPROVAL_STATUS: 'pending',           // legacy text field
-        APPROVAL_STATUS_CATEGORY: 1,          // 1=Pending, 2=Approved, 3=Rejected
+        APPROVAL_STATUS_CATEGORY: 1,          // 1=Pending, 2=Approved, 3=Rejected (integer required)
         NEWSLETTER: newsletter !== false ? 'yes' : 'no',
       },
       // List 3 = ZRH Robotic Field Leads (always added)
