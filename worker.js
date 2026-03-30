@@ -30,7 +30,7 @@ export default {
       });
     }
 
-    const { email, firstName, lastName, company, role, linkedin, phone, why } = data;
+    const { email, firstName, lastName, company, role, linkedin, phone, why, newsletter } = data;
 
     if (!email || !firstName || !lastName || !company || !role || !linkedin || !why) {
       return new Response(JSON.stringify({ message: 'Missing required fields' }), {
@@ -50,7 +50,10 @@ export default {
         PHONE: phone || '',
         WHY_JOIN: why,
         APPROVAL_STATUS: 'pending',
+        NEWSLETTER: newsletter !== false ? 'yes' : 'no',
       },
+      // List 3 = ZRH Robotic Field Leads (always added)
+      // If newsletter opted in, also add to list 3 (same list for now — separate newsletter list can be created later)
       listIds: [3],
       updateEnabled: true,
     };
