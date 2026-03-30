@@ -69,6 +69,27 @@ export default {
     });
 
     if (brevoRes.ok || brevoRes.status === 204 || brevoRes.status === 201) {
+      // Notify Maurin via Telegram
+      const msg = `🤖 *New application — Zurich Field Robotics Leads*\n\n` +
+        `*${firstName} ${lastName}*\n` +
+        `🏢 ${company} — ${role}\n` +
+        `📧 ${email}\n` +
+        (phone ? `📱 ${phone}\n` : ``) +
+        `🔗 ${linkedin}\n\n` +
+        `💬 _${why.substring(0, 200)}${why.length > 200 ? '...' : ''}_\n\n` +
+        `Newsletter: ${newsletter !== false ? 'yes' : 'no'}\n\n` +
+        `→ Approve in Brevo: https://app.brevo.com/contact/list`;
+
+      await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: '1597503772',
+          text: msg,
+          parse_mode: 'Markdown',
+        }),
+      });
+
       return new Response(JSON.stringify({ success: true }), {
         status: 200, headers: { 'Content-Type': 'application/json', ...CORS_HEADERS }
       });
