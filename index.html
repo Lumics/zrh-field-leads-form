@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZRH Robotic Field Leads — Apply to Join</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: #222;
+      --border-focus: #444;
+      --text: #f0f0f0;
+      --muted: #777;
+      --label: #aaa;
+      --input-bg: #1a1a1a;
+      --accent: #2563eb;
+      --btn-bg: #f0f0f0;
+      --btn-text: #0a0a0a;
+      --error: #ef4444;
+      --success: #22c55e;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 60px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 540px;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 48px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 100px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* Form */
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--label);
+      margin-bottom: 7px;
+    }
+
+    label .req {
+      color: var(--accent);
+      margin-left: 2px;
+    }
+
+    label .opt {
+      font-size: 11px;
+      font-weight: 400;
+      color: #555;
+      margin-left: 4px;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      padding: 11px 14px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #444;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    input.error, textarea.error {
+      border-color: var(--error);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: 1.6;
+    }
+
+    .error-msg {
+      font-size: 12px;
+      color: var(--error);
+      margin-top: 5px;
+      display: none;
+    }
+
+    .field.has-error .error-msg { display: block; }
+    .field.has-error input,
+    .field.has-error textarea { border-color: var(--error); }
+
+    /* Submit */
+    .submit-wrap {
+      margin-top: 28px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    button[type="submit"]:hover { opacity: 0.9; }
+    button[type="submit"]:active { transform: scale(0.99); }
+    button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-arrow { font-size: 16px; }
+
+    /* Spinner */
+    .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(0,0,0,0.2);
+      border-top-color: #000;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading .spinner { display: block; }
+    .loading .btn-label { display: none; }
+    .loading .btn-arrow { display: none; }
+
+    /* Success state */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .success-state.visible { display: block; }
+    .form-card.submitted .form-content { display: none; }
+    .form-card.submitted .success-state { display: block; }
+
+    .success-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .success-state h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .success-state p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Footer note */
+    .footer-note {
+      text-align: center;
+      font-size: 12px;
+      color: #444;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 32px 16px 60px; }
+      .form-card { padding: 24px 20px; }
+      .row { grid-template-columns: 1fr; gap: 0; }
+      h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        Zurich · Field Robotics
+      </div>
+      <h1>ZRH Robotic<br>Field Leads</h1>
+      <p class="subtitle">A curated community of field robotics engineering team leads in Zurich. We meet regularly to share learnings, solve common challenges, and support each other's work.<br><br>Applications are reviewed manually. We only accept team leads actively working in field robotics.</p>
+    </div>
+
+    <div class="form-card" id="formCard">
+      <form id="applyForm" class="form-content" novalidate>
+
+        <div class="section-label">Your details</div>
+
+        <div class="row">
+          <div class="field" id="field-firstName">
+            <label for="firstName">First name <span class="req">*</span></label>
+            <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="Ada">
+            <div class="error-msg">Required</div>
+          </div>
+          <div class="field" id="field-lastName">
+            <label for="lastName">Last name <span class="req">*</span></label>
+            <input type="text" id="lastName" name="lastName" autocomplete="family-name" placeholder="Lovelace">
+            <div class="error-msg">Required</div>
+          </div>
+        </div>
+
+        <div class="field" id="field-email">
+          <label for="email">Email address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="ada@company.com">
+          <div class="error-msg">Enter a valid email address</div>
+        </div>
+
+        <div class="section-label">Professional background</div>
+
+        <div class="field" id="field-company">
+          <label for="company">Company / Organisation <span class="req">*</span></label>
+          <input type="text" id="company" name="company" autocomplete="organization" placeholder="ANYbotics">
+          <div class="error-msg">Required</div>
+        </div>
+
+        <div class="field" id="field-role">
+          <label for="role">Job title / Role <span class="req">*</span></label>
+          <input type="text" id="role" name="role" placeholder="Field Robotics Team Lead">
+          <div class="error-msg">Required</div>
+        </div>
+
+        <div class="field" id="field-linkedin">
+          <label for="linkedin">LinkedIn profile <span class="req">*</span></label>
+          <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/...">
+          <div class="error-msg">Enter your LinkedIn profile URL</div>
+        </div>
+
+        <div class="section-label">Contact</div>
+
+        <div class="field" id="field-phone">
+          <label for="phone">Phone number <span class="opt">(optional — for WhatsApp group)</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+41 79 123 45 67">
+        </div>
+
+        <div class="section-label">Motivation</div>
+
+        <div class="field" id="field-why">
+          <label for="why">Why do you want to join? <span class="req">*</span></label>
+          <textarea id="why" name="why" placeholder="Tell us about your background and what you hope to get from the group."></textarea>
+          <div class="error-msg">Required</div>
+        </div>
+
+        <div class="submit-wrap">
+          <button type="submit" id="submitBtn">
+            <span class="spinner"></span>
+            <span class="btn-label">Apply to join</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+      </form>
+
+      <div class="success-state">
+        <div class="success-icon">🤖</div>
+        <h2>Application received</h2>
+        <p>Thanks for applying to ZRH Robotic Field Leads.<br>We review applications manually and will be in touch soon.</p>
+      </div>
+    </div>
+
+    <p class="footer-note">Applications are curated. We'll review your LinkedIn profile and reach out within a few days.</p>
+  </div>
+
+  <script>
+    // Submissions are proxied via a Cloudflare Worker to keep the API key server-side
+    const SUBMIT_ENDPOINT = 'https://zrh-field-leads.maurinwidmer.workers.dev/submit';
+
+    const form = document.getElementById('applyForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formCard = document.getElementById('formCard');
+
+    function validateField(id, validator) {
+      const field = document.getElementById(`field-${id}`);
+      const input = document.getElementById(id);
+      const valid = validator(input.value.trim());
+      field.classList.toggle('has-error', !valid);
+      return valid;
+    }
+
+    function validateAll() {
+      const results = [
+        validateField('firstName', v => v.length > 0),
+        validateField('lastName', v => v.length > 0),
+        validateField('email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)),
+        validateField('company', v => v.length > 0),
+        validateField('role', v => v.length > 0),
+        validateField('linkedin', v => v.length > 0),
+        validateField('why', v => v.length > 10),
+      ];
+      return results.every(Boolean);
+    }
+
+    ['firstName','lastName','email','company','role','linkedin','why'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => {
+        document.getElementById(`field-${id}`).classList.remove('has-error');
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validateAll()) return;
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add('loading');
+
+      const payload = {
+        email: document.getElementById('email').value.trim(),
+        firstName: document.getElementById('firstName').value.trim(),
+        lastName: document.getElementById('lastName').value.trim(),
+        company: document.getElementById('company').value.trim(),
+        role: document.getElementById('role').value.trim(),
+        linkedin: document.getElementById('linkedin').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        why: document.getElementById('why').value.trim(),
+      };
+
+      try {
+        const res = await fetch(SUBMIT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          formCard.classList.add('submitted');
+        } else {
+          const err = await res.json();
+          throw new Error(err.message || 'Submission failed');
+        }
+      } catch (err) {
+        console.error(err);
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        alert('Something went wrong. Please try again or email maurin@maurinwidmer.ch directly.');
+      }
+    });
+  </script>
+</body>
+</html>
