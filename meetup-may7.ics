@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ZRH Field Robotics Leads//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Zurich:20260507T183000
+DTEND;TZID=Europe/Zurich:20260507T213000
+SUMMARY:ZRH Field Robotics Leads #2
+LOCATION:Café des Amis\, Zurich
+DESCRIPTION:Second edition of the ZRH Field Robotics Leads meetup.\n\nCafé des Amis — an evening of exchanging on interesting topics\, challenges and solutions across our organisations.\n\nMore info: https://lumics.github.io/zrh-field-leads-form/
+URL:https://maps.app.goo.gl/ZmiGDAdX9QNrUd268
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:ZRH Field Robotics Leads #2 starts in 1 hour
+END:VALARM
+END:VEVENT
+END:VCALENDAR
