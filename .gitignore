@@ -3,3 +3,7 @@ node_modules/
 .env
 .admin-token
 .claude/
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
