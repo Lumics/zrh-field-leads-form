@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ZRH Field Robotics Leads//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART;TZID=Europe/Zurich:20260611T183000
+DTEND;TZID=Europe/Zurich:20260611T213000
+SUMMARY:ZRH Field Robotics Leads #3
+LOCATION:Zum Frischen Max\, Zurich
+DESCRIPTION:Third edition of the ZRH Field Robotics Leads meetup.\n\nZum Frischen Max — an evening of exchanging on interesting topics\, challenges and solutions across our organisations. Dinner available on site.\n\nMore info: https://lumics.github.io/zrh-field-leads-form/
+URL:https://www.zumfrischenmax.ch/zfm/de.html
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:ZRH Field Robotics Leads #3 starts in 1 hour
+END:VALARM
+END:VEVENT
+END:VCALENDAR
