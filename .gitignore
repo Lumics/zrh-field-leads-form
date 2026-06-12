@@ -4,3 +4,7 @@ node_modules/
 .admin-token
 .claude/
 .DS_Store
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
